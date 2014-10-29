@@ -1,0 +1,57 @@
+<!--
+	A way for me to remember how positioning works in CSS.
+	
+	To make one child positioned inside another:  both the container
+	and the child have to have a non-normal positioning.
+	
+	Learned after lots of experimenting with examples on
+	- http://www.w3schools.com/css/css_positioning.asp
+	- http://www.w3schools.com/css/tryit.asp?filename=trycss_position_absolute
+	
+	with help from
+	- http://stackoverflow.com/questions/10487292/position-absolute-but-relative-to-parent
+-->
+<html>
+	<head>
+		<style>
+
+		p { margin: 0px; }
+		body { margin: 0px; padding: 0px; border: 1px solid red; }
+
+		#section1
+		{
+			border: 1px solid blue;
+			margin: 50px;
+			padding: 50px;
+			background-color: #eee;
+			
+    		/* 
+				THIS is the line that makes my CHILDREN able to be
+				"absolute" positioned relative to me.  Any non-normal
+				position for me will work -- absolute, relative, or fixed.
+			*/
+			position: relative;
+		}
+		
+		h2 {
+			/* This is the positioning item in question. */
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			border: 4px solid green;
+			margin: 0px;
+			padding: 0px;
+		}
+		</style>
+	</head>
+	
+	<body>
+		
+		<div id="section1">
+			
+		   <p>This whole section has some non-normal "position" setting.  this line is "before" the h2 you see floating around me...</p>
+		   <h2>This heading has an absolute position</h2>
+		   <p>...and this line occurs "after" it.</p>
+		</div>
+	</body>
+</html>
